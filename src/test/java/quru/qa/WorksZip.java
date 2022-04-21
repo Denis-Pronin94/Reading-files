@@ -39,7 +39,7 @@ public class WorksZip {
     }
 
     @Test
-    void zipParsingxlsTest() throws Exception {
+    void zipParsingXlsTest() throws Exception {
         ZipFile zf = new ZipFile(new File("src/test/resources/prajs_ot_2104xls.zip"));
         try (ZipInputStream is = new ZipInputStream(classLoader.getResourceAsStream("prajs_ot_2104xls.zip"))) {
             ZipEntry entry;
@@ -48,7 +48,7 @@ public class WorksZip {
                 try (InputStream inputStream = zf.getInputStream(entry)) {
                     XLS xls = new XLS(inputStream);
                             String stringCellValue = xls.excel.getSheetAt(0).getRow(31).getCell(2).getStringCellValue();
-                    org.assertj.core.api.Assertions.assertThat(stringCellValue).contains("        Бумага для широкоформатных принтеров и чертежных работ");
+                    org.assertj.core.api.Assertions.assertThat(stringCellValue).contains("Бумага для широкоформатных принтеров и чертежных работ");
                 }
             }
         }
